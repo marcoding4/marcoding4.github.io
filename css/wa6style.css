@@ -1,0 +1,42 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: url("https://cdn.glitch.global/484a5754-a552-42ae-ba4c-7d9bd1935ddf/aubrey_cactus.jpg?v=1727991889782");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center top;
+  height: 2000px;
+  
+}
+
+#content img {
+    height: 50em;
+    background-repeat: no-repeat;
+    padding: 5px;
+    position: sticky;
+    top: -6em;
+    z-index: 2;
+  
+}
+
+#content2 img {
+    height: 30em;
+    background-repeat: no-repeat;
+    padding: 5px;
+    position: sticky;
+    top: 5em;
+    left: 50em;
+    z-index: 3;
+  
+}
+
