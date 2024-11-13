@@ -1,0 +1,54 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #ccc;
+}
+
+article {
+  width: 210mm;
+  height: 297mm;
+  margin: 20px auto;
+  position: relative;
+  background: url("https://cdn.glitch.global/484a5754-a552-42ae-ba4c-7d9bd1935ddf/top-image.png?v=1727799609616") no-repeat left top;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0) 10%, rgba(0,0,0,0) 70%, rgba(0,0,0,0.2)),
+              url("https://cdn.glitch.global/484a5754-a552-42ae-ba4c-7d9bd1935ddf/top-image.png?v=1727799609616") no-repeat left top,
+              url("https://cdn.glitch.global/484a5754-a552-42ae-ba4c-7d9bd1935ddf/bottom-image.png?v=1727799596726") no-repeat left bottom;
+  background-color: white;
+  border-top: 1mm red;
+  border-bottom: 1mm red;
+}
+
+address {
+  position: absolute;
+  bottom: 8mm;
+  right: 20mm;
+}
+
+h1 {
+  position: absolute;
+  top: 12mm;
+  left: 20mm;
+  width: 128px;
+  height: 128px;
+  font-size: 20px;
+  letter-spacing: 1px;
+  text-align: center;
+  padding: 44px 0;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+  background-image: url("https://cdn.glitch.global/484a5754-a552-42ae-ba4c-7d9bd1935ddf/logo.png?v=1727799561325");
+  text-shadow: 5px 5px 5px black;
+  
+  
+}
+
+
+/* Your CSS below here */
+
