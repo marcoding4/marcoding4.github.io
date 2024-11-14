@@ -1,29 +1,44 @@
+let myData = {};
 
-function fetchData() {
-    let apiUrl = 'https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=single';
+function fetchData() { 
+  comicNumber = Math.floor(Math.random() * 3000) + 1;
+  fetch('https://corsproxy.io/?https://xkcd.com/${comicNumber}/info.0.json')
+    .then(res=> {
+    if (res.ok){
+      return res.json()
+    }else {
+      console.log(res)
+    }
+  })
+  
+    .then(res=>{
+    myData = res;
+    console.log(myData)
+    
+    //title
+    document.getElementById("title").innerHTML = myData.title;
+    
+    //image
+    document.getElementById("comic").src = myData.img;
+    document.getElementById("comic").setAttribute("alt",myData.alt);
+    //date
+    let mon = myData.month;
+    let dat = myData.day;
+    let yr = myData.year;
+    document.getElementById("date").innerHTML = `${mon}/${dat}/${yr}`;
 
-    fetch(apiUrl)
-        .then(function(response) {
-            if (response.ok) {
-                return response.json(); 
-            } else {
-                alert("Failed to fetch joke.");
-                return;
-            }
-        })
-        .then(function(data) {
-            let jokeText;
+  })
+  
+        .catch(function(error) {
+            console.log(error);
+            alert("Something went wrong!");
+        });
+}
 
-            if (data.joke) {
-                jokeText = data.joke;
-            } else if (data.setup && data.delivery) {
-                jokeText = `${data.setup} - ${data.delivery}`;
-            } else {
-                jokeText = "Couldn't find a joke, try again!";
-            }
 
-            
-            document.getElementById("joke").innerText = jokeText;
-        })
+let button = document.getElementById("generate");
+button.addEventListener("click", fetchData);
 
+
+fetchData();
 
