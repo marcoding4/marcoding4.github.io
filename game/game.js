@@ -2,36 +2,37 @@
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
-// Load all frames for animations
+// File paths
+const baseUrl = "img/"; // Base path for accessing images
 const idleFrames = [
-    "/img/player_idle.png"
+    `${baseUrl}player_idle.png`
 ];
 const walkRightFrames = [
-    "/img/player_walkright0.png",
-    "/img/player_walkright1.png",
-    "/img/player_walkright2.png",
-    "/img/player_walkright3.png"
+    `${baseUrl}player_walkright0.png`,
+    `${baseUrl}player_walkright1.png`,
+    `${baseUrl}player_walkright2.png`,
+    `${baseUrl}player_walkright3.png`
 ];
 
 const walkLeftFrames = [
-    "/img/player_walkleft0.png",
-    "/img/player_walkleft1.png",
-    "/img/player_walkleft2.png",
-    "/img/player_walkleft3.png"
+    `${baseUrl}player_walkleft0.png`,
+    `${baseUrl}player_walkleft1.png`,
+    `${baseUrl}player_walkleft2.png`,
+    `${baseUrl}player_walkleft3.png`
 ];
 
 const walkUpFrames = [
-    "/img/player_back0.png",
-    "/img/player_back1.png",
-    "/img/player_back2.png",
-    "/img/player_back3.png"
+    `${baseUrl}player_back0.png`,
+    `${baseUrl}player_back1.png`,
+    `${baseUrl}player_back2.png`,
+    `${baseUrl}player_back3.png`
 ];
 
 const walkDownFrames = [
-    "/img/player_forward0.png",
-    "/img/player_forward1.png",
-    "/img/player_forward2.png",
-    "/img/player_forward3.png"
+    `${baseUrl}player_forward0.png`,
+    `${baseUrl}player_forward1.png`,
+    `${baseUrl}player_forward2.png`,
+    `${baseUrl}player_forward3.png`
 ];
 
 // Player settings
@@ -62,7 +63,7 @@ function drawPlayer(timestamp) {
     frameImage.onload = () => {
         console.log("after");
         if (frameImage.complete && frameImage.naturalWidth > 0) {
-            ctx.drawImage(frameImage, playerX, playerY, 64, 64);
+            ctx.drawImage(frameImage, playerX, playerY, 64, 64); // Adjust the size as needed
         } else {
             console.error('Image failed to load');
         }
