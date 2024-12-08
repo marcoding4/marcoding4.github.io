@@ -58,8 +58,9 @@ function drawPlayer(timestamp) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     // Draw the current frame
+    console.log("before");
     frameImage.onload = () => {
-        console.log("error");
+        console.log("after");
         if (frameImage.complete && frameImage.naturalWidth > 0) {
             ctx.drawImage(frameImage, playerX, playerY, 64, 64);
         } else {
