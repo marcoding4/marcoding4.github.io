@@ -3,7 +3,7 @@ const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
 // File paths
-const baseUrl = "./img/"; // Base path for accessing images
+const baseUrl = "./img/";
 const idleFrames = [
     `${baseUrl}player_idle.png`
 ];
