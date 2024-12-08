@@ -4,34 +4,34 @@ const ctx = canvas.getContext("2d");
 
 // Load all frames for animations
 const idleFrames = [
-    "./img/player_idle.png"
+    "/img/player_idle.png"
 ];
 const walkRightFrames = [
-    "./img/player_walkright0.png",
-    "./img/player_walkright1.png",
-    "./img/player_walkright2.png",
-    "./img/player_walkright3.png"
+    "/img/player_walkright0.png",
+    "/img/player_walkright1.png",
+    "/img/player_walkright2.png",
+    "/img/player_walkright3.png"
 ];
 
 const walkLeftFrames = [
-    "./img/player_walkleft0.png",
-    "./img/player_walkleft1.png",
-    "./img/player_walkleft2.png",
-    "./img/player_walkleft3.png"
+    "/img/player_walkleft0.png",
+    "/img/player_walkleft1.png",
+    "/img/player_walkleft2.png",
+    "/img/player_walkleft3.png"
 ];
 
 const walkUpFrames = [
-    "./img/player_back0.png",
-    "./img/player_back1.png",
-    "./img/player_back2.png",
-    "./img/player_back3.png"
+    "/img/player_back0.png",
+    "/img/player_back1.png",
+    "/img/player_back2.png",
+    "/img/player_back3.png"
 ];
 
 const walkDownFrames = [
-    "./img/player_forward0.png",
-    "./img/player_forward1.png",
-    "./img/player_forward2.png",
-    "./img/player_forward3.png"
+    "/img/player_forward0.png",
+    "/img/player_forward1.png",
+    "/img/player_forward2.png",
+    "/img/player_forward3.png"
 ];
 
 // Player settings
