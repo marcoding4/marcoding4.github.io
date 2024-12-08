@@ -16,37 +16,37 @@ let lastFrameTime = 0;
 
 // Load animation frames
 const walkRightFrames = [
-    "img/player_walkright0.png",
-    "img/player_walkright1.png",
-    "img/player_walkright2.png",
-    "img/player_walkright3.png"
+    "./img/player_walkright0.png",
+    "./img/player_walkright1.png",
+    "./img/player_walkright2.png",
+    "./img/player_walkright3.png"
 ];
 const walkLeftFrames = [
-    "img/player_walkleft0.png",
-    "img/player_walkleft1.png",
-    "img/player_walkleft2.png",
-    "img/player_walkleft3.png"
+    "./img/player_walkleft0.png",
+    "./img/player_walkleft1.png",
+    "./img/player_walkleft2.png",
+    "./img/player_walkleft3.png"
 ];
 const walkUpFrames = [
-    "img/player_back0.png",
-    "img/player_back1.png",
-    "img/player_back2.png",
-    "img/player_back3.png"
+    "./img/player_back0.png",
+    "./img/player_back1.png",
+    "./img/player_back2.png",
+    "./img/player_back3.png"
 ];
 const walkDownFrames = [
-    "img/player_forward0.png",
-    "img/player_forward1.png",
-    "img/player_forward2.png",
-    "img/player_forward3.png"
+    "./img/player_forward0.png",
+    "./img/player_forward1.png",
+    "./img/player_forward2.png",
+    "./img/player_forward3.png"
 ];
-const idleFrames = ["img/player_idle.png"];
+const idleFrames = ["./img/player_idle.png"];
 let currentFrames = idleFrames;
 
 // Load NPCs
 const npcs = [
-    { x: 250, y: 150, clue: "The correct door is not the red one.", image: "img/npc1.png" },
-    { x: 450, y: 150, clue: "Choose the door with the glowing outline.", image: "img/npc2.png" },
-    { x: 650, y: 150, clue: "The correct door is the last one.", image: "img/npc3.png" }
+    { x: 250, y: 150, clue: "The correct door is not the red one.", image: "./img/npc1.png" },
+    { x: 450, y: 150, clue: "Choose the door with the glowing outline.", image: "./img/npc2.png" },
+    { x: 650, y: 150, clue: "The correct door is the last one.", image: "./img/npc3.png" }
 ];
 
 // Draw function
