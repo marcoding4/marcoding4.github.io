@@ -59,6 +59,7 @@ function drawPlayer(timestamp) {
 
     // Draw the current frame
     frameImage.onload = () => {
+        console.log("error");
         if (frameImage.complete && frameImage.naturalWidth > 0) {
             ctx.drawImage(frameImage, playerX, playerY, 64, 64);
         } else {
