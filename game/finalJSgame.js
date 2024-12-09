@@ -21,54 +21,55 @@ const correctDoors = [2, 0, 1]; // Correct doors for levels 1, 2, and 3
 // Current level
 let currentLevel = 1;
 
-// Loading images
-const npcImages = [
+// Image sources
+const npcImageSources = [
     "https://cdn.glitch.global/5be637cd-2214-4418-ba2f-247fd239a211/npc1.png?v=1733624568544",
     "https://cdn.glitch.global/5be637cd-2214-4418-ba2f-247fd239a211/npc2.png?v=1733624610378",
     "https://cdn.glitch.global/5be637cd-2214-4418-ba2f-247fd239a211/npc3.png?v=1733624613689"
-].map(src => {
-    const img = new Image();
-    img.src = src;
-    return img;
-});
-const doorImages = [
+];
+const doorImageSources = [
     "https://cdn.glitch.global/5be637cd-2214-4418-ba2f-247fd239a211/door1.png?v=1733625009389",
     "https://cdn.glitch.global/5be637cd-2214-4418-ba2f-247fd239a211/door2.png?v=1733625012838",
     "https://cdn.glitch.global/5be637cd-2214-4418-ba2f-247fd239a211/door3.png?v=1733625018318"
-].map(src => {
-    const img = new Image();
-    img.src = src;
-    return img;
-});
+];
 
-//Make images load with screen, was having problems with characters and doors not loading right
+// original images
 const npcImages = [];
 const doorImages = [];
+
+// Temporary for loading images please work
+const npcImagesArray = [];
+const doorImagesArray = [];
+
 let imagesLoaded = 0;
 const totalImages = npcImageSources.length + doorImageSources.length;
 
+// Image loading callback
 function onImageLoad() {
     imagesLoaded++;
     if (imagesLoaded === totalImages) {
+        npcImages.push(...npcImagesArray);
+        doorImages.push(...doorImagesArray);
         drawScene(); // Draw the scene once all images are loaded
     }
 }
 
-// Load NPC images
+// Load NPC images into npcImagesArray
 for (const src of npcImageSources) {
     const img = new Image();
     img.src = src;
     img.onload = onImageLoad;
-    npcImages.push(img);
+    npcImagesArray.push(img);
 }
 
-// Load door images
+// Load door images into doorImagesArray
 for (const src of doorImageSources) {
     const img = new Image();
     img.src = src;
     img.onload = onImageLoad;
-    doorImages.push(img);
+    doorImagesArray.push(img);
 }
+
 // Draw the board
 function drawScene() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -84,7 +85,7 @@ function drawScene() {
     }
 }
 
-// clicks
+// Handle clicks
 canvas.addEventListener('click', (event) => {
     const rect = canvas.getBoundingClientRect();
     const mouseX = event.clientX - rect.left;
@@ -136,25 +137,26 @@ function nextLevel() {
         doors[i].isCorrect = (i === correctDoors[currentLevel - 1]);
     }
 
-    //  Dialogue for each level
-    if (currentLevel === 1) { //correct door is far right
+    // Update NPC clues
+    if (currentLevel === 1) {
         npcs[0].clue = "Level 1: The correct door is not on the left.";
         npcs[1].clue = "Level 1: It's not the middle door.";
         npcs[2].clue = "Level 1: The door on the far right is the one to choose.";
-    } else if (currentLevel === 2) { // correct door is far left
+    } else if (currentLevel === 2) {
         npcs[0].clue = "Level 2: The correct door is probably the one on the right.";
-        npcs[1].clue = "Level 2: Dont trust that guy to my right.";
+        npcs[1].clue = "Level 2: Don't trust that guy to my right.";
         npcs[2].clue = "Level 2: The door is not in the middle.";
-    } else if (currentLevel === 3) { // correct door is in the middle
-        npcs[0].clue = "Level 3: The correct door in in the middle.";
-        npcs[1].clue = "Level 3: The correct door is in on one of the far sides.";
-        npcs[2].clue = "Level 3: The liar in the npc in the middle.";
+    } else if (currentLevel === 3) {
+        npcs[0].clue = "Level 3: The correct door is in the middle.";
+        npcs[1].clue = "Level 3: The correct door is on one of the far sides.";
+        npcs[2].clue = "Level 3: The liar is the NPC in the middle.";
     }
 
     drawScene();
 }
+
 function resetGame() {
-    currentLevel = 1; // Reset to the first level
+    currentLevel = 1;
 
     // Reset the correct door for level 1
     for (let i = 0; i < doors.length; i++) {
@@ -171,4 +173,4 @@ function resetGame() {
 }
 
 // Start the game
-drawScene();
+// drawScene(); // Now this happens after images are loaded
