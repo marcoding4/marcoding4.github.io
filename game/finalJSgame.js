@@ -41,6 +41,34 @@ const doorImages = [
     return img;
 });
 
+//Make images load with screen, was having problems with characters and doors not loading right
+const npcImages = [];
+const doorImages = [];
+let imagesLoaded = 0;
+const totalImages = npcImageSources.length + doorImageSources.length;
+
+function onImageLoad() {
+    imagesLoaded++;
+    if (imagesLoaded === totalImages) {
+        drawScene(); // Draw the scene once all images are loaded
+    }
+}
+
+// Load NPC images
+for (const src of npcImageSources) {
+    const img = new Image();
+    img.src = src;
+    img.onload = onImageLoad;
+    npcImages.push(img);
+}
+
+// Load door images
+for (const src of doorImageSources) {
+    const img = new Image();
+    img.src = src;
+    img.onload = onImageLoad;
+    doorImages.push(img);
+}
 // Draw the board
 function drawScene() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
